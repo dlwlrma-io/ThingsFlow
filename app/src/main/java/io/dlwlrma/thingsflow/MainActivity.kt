@@ -1,11 +1,9 @@
 package io.dlwlrma.thingsflow
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import io.dlwlrma.thingsflow.base.BaseActivity
+import io.dlwlrma.thingsflow.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+    override val layoutRes: Int = R.layout.activity_main
+    override var viewModel: MainViewModel = MainViewModel()
 }
