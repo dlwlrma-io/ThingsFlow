@@ -1,5 +1,6 @@
-package io.dlwlrma.thingsflow
+package io.dlwlrma.thingsflow.ui
 
+import io.dlwlrma.thingsflow.R
 import io.dlwlrma.thingsflow.base.BaseActivity
 import io.dlwlrma.thingsflow.databinding.ActivityMainBinding
 

@@ -1,4 +1,4 @@
-package io.dlwlrma.thingsflow.model
+package io.dlwlrma.thingsflow.service.model
 
 import com.google.gson.annotations.SerializedName
 
