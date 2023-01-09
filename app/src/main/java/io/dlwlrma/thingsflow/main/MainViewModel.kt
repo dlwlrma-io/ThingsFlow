@@ -1,9 +1,10 @@
-package io.dlwlrma.thingsflow.ui
+package io.dlwlrma.thingsflow.main
 
 import androidx.lifecycle.MutableLiveData
 import io.dlwlrma.thingsflow.base.ViewModel
 import io.dlwlrma.thingsflow.service.GitHubService
 import io.dlwlrma.thingsflow.service.model.Issue
+import io.dlwlrma.thingsflow.main.adapter.IssueAdapter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -20,6 +21,11 @@ class MainViewModel : ViewModel {
 
     val items: MutableLiveData<List<Issue>> by lazy {
         MutableLiveData<List<Issue>>()
+    }
+
+    val observer = object : IssueAdapter.Observer {
+        override fun onTextClick(item: Issue) {}
+        override fun onImageClick(url: String) {}
     }
 
     private val disposables: CompositeDisposable by lazy {

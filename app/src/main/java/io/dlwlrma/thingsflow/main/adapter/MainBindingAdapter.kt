@@ -1,4 +1,4 @@
-package io.dlwlrma.thingsflow.ui.adapter
+package io.dlwlrma.thingsflow.main.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -22,4 +22,12 @@ fun loadImage(view: ImageView, url: String) {
     Glide.with(view.context)
         .load(url)
         .into(view)
+}
+
+@BindingAdapter("observer")
+fun bindObserver(view: RecyclerView, observer: IssueAdapter.Observer) {
+    val adapter = view.adapter as? IssueAdapter
+        ?: IssueAdapter().apply { view.adapter = this }
+
+    adapter.observer = observer
 }

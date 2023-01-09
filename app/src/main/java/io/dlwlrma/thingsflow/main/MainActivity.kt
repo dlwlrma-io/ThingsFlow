@@ -1,4 +1,4 @@
-package io.dlwlrma.thingsflow.ui
+package io.dlwlrma.thingsflow.main
 
 import io.dlwlrma.thingsflow.R
 import io.dlwlrma.thingsflow.base.BaseActivity
