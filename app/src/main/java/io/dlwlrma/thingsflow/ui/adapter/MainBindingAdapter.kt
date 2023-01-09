@@ -1,9 +1,10 @@
-package io.dlwlrma.thingsflow
+package io.dlwlrma.thingsflow.ui.adapter
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import io.dlwlrma.thingsflow.service.model.Issue
-import io.dlwlrma.thingsflow.ui.adapter.IssueAdapter
 
 @BindingAdapter("app:items")
 fun bindItems(view: RecyclerView, items: List<Issue>?) {
@@ -14,4 +15,11 @@ fun bindItems(view: RecyclerView, items: List<Issue>?) {
         adapter.items = it
         adapter.notifyDataSetChanged()
     }
+}
+
+@BindingAdapter("app:imageUrl")
+fun loadImage(view: ImageView, url: String) {
+    Glide.with(view.context)
+        .load(url)
+        .into(view)
 }
