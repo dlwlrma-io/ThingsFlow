@@ -54,7 +54,7 @@ class IssueAdapter : RecyclerView.Adapter<ViewHolder>() {
     inner class ImageViewHolder(private val binding: ImageItemBinding) : ViewHolder(binding.root) {
         fun bind(imageUrl: String) {
             binding.imageView.setOnClickListener {
-                observer?.onImageClick("https://thingsflow.com/ko/home")
+                observer?.onImageClick()
             }
 
             binding.imageUrl = imageUrl
@@ -64,7 +64,7 @@ class IssueAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     interface Observer {
         fun onTextClick(item: Issue)
-        fun onImageClick(url: String)
+        fun onImageClick()
     }
 
     companion object {

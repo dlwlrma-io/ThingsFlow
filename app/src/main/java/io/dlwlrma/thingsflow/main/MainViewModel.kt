@@ -2,9 +2,9 @@ package io.dlwlrma.thingsflow.main
 
 import androidx.lifecycle.MutableLiveData
 import io.dlwlrma.thingsflow.base.ViewModel
+import io.dlwlrma.thingsflow.main.adapter.IssueAdapter
 import io.dlwlrma.thingsflow.service.GitHubService
 import io.dlwlrma.thingsflow.service.model.Issue
-import io.dlwlrma.thingsflow.main.adapter.IssueAdapter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -14,20 +14,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 class MainViewModel : ViewModel {
-
-    val title: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-
-    val items: MutableLiveData<List<Issue>> by lazy {
-        MutableLiveData<List<Issue>>()
-    }
-
-    val observer = object : IssueAdapter.Observer {
-        override fun onTextClick(item: Issue) {}
-        override fun onImageClick(url: String) {}
-    }
-
     private val disposables: CompositeDisposable by lazy {
         CompositeDisposable()
     }
@@ -39,6 +25,32 @@ class MainViewModel : ViewModel {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
             .create()
+    }
+
+    val title: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    val items: MutableLiveData<List<Issue>> by lazy {
+        MutableLiveData<List<Issue>>()
+    }
+
+    val showDetailPage: MutableLiveData<Issue> by lazy {
+        MutableLiveData<Issue>()
+    }
+
+    val showWebPage: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    val observer = object : IssueAdapter.Observer {
+        override fun onTextClick(item: Issue) {
+            showDetailPage.value = item
+        }
+
+        override fun onImageClick() {
+            showWebPage.value = "https://thingsflow.com/ko/home"
+        }
     }
 
     init {

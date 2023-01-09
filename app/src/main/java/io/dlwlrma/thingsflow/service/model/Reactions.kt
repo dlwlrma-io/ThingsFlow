@@ -1,6 +1,7 @@
 package io.dlwlrma.thingsflow.service.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Reactions(
     @SerializedName(value = "+1")
@@ -25,4 +26,4 @@ data class Reactions(
     val totalCount: Int,
 
     val url: String
-)
+) : Serializable

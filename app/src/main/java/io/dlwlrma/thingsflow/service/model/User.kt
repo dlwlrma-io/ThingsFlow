@@ -1,6 +1,7 @@
 package io.dlwlrma.thingsflow.service.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class User(
     @SerializedName(value = "avatar_url")
@@ -52,4 +53,4 @@ data class User(
     val type: String,
 
     val url: String
-)
+) : Serializable

@@ -1,6 +1,7 @@
 package io.dlwlrma.thingsflow.service.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Issue(
     @SerializedName(value = "active_lock_reason")
@@ -73,4 +74,4 @@ data class Issue(
     val url: String,
 
     val user: User
-)
+) : Serializable

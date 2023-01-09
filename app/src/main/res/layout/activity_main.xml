@@ -50,11 +50,11 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             app:items="@{viewModel.items}"
-            app:observer="@{viewModel.observer}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:observer="@{viewModel.observer}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
